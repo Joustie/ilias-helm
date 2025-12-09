@@ -21,6 +21,12 @@ spec:
           image: {{ .Values.ilias.image }}:{{ .Values.ilias.tag }}
           command: ["/bin/sh", "/setup.sh"]
           env:
+              - name: ILIAS_WWW_PATH
+                value: "/var/www/html"
+              - name: ILIAS_DATA_PATH
+                value: "/var/www/html/public/data"
+              - name: ILIAS_ILIASDATA_PATH
+                value: "/var/iliasdata/ilias"
               - name: ILIAS_AUTO_SETUP
                 value: {{ .Values.ilias.autoSetup | quote }}
               - name: ILIAS_AUTO_UPDATE
@@ -81,7 +87,7 @@ spec:
               mountPath: /client.ini.php
               subPath: ilias-client.php
             - name: ilias-data
-              mountPath: /var/www/html/data
+              mountPath: /var/www/html/public/data
             - name: ilias-iliasdata
               mountPath: /var/iliasdata/ilias
             - name: ilias-config
@@ -107,6 +113,12 @@ spec:
           ports:
             - containerPort: {{ .Values.ilias.port }}
           env:
+            - name: ILIAS_WWW_PATH
+              value: "/var/www/html"
+            - name: ILIAS_DATA_PATH
+              value: "/var/www/html/public/data"
+            - name: ILIAS_ILIASDATA_PATH
+              value: "/var/iliasdata/ilias"
             - name: ILIAS_AUTO_SETUP
               value: {{ .Values.ilias.autoSetup | quote }}
             - name: ILIAS_AUTO_UPDATE
@@ -158,7 +170,7 @@ spec:
               value: {{ .Values.ilias.dumpAutoload | quote }}
           volumeMounts:
             - name: ilias-data
-              mountPath: /var/www/html/data
+              mountPath: /var/www/html/public/data
             - name: ilias-iliasdata
               mountPath: /var/iliasdata/ilias
             - name: ilias-config
@@ -166,7 +178,7 @@ spec:
               subPath: ilias.ini
             - name: ilias-config
               mountPath: /var/www/html/ilias.ini.php
-              subPath: ilias-config.php  
+              subPath: ilias-config.php
 {{- if .Values.extraVolumeMounts }}
 {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
 {{- end }}
