@@ -1,5 +1,5 @@
 ilias:
-  image: registry.gitlab.volteuropa.org/joost.evertse/docker-ilias/ilias:10
+  image: registry.gitlab.volteuropa.org/joost.evertse/docker-ilias/ilias
   tag: 10 # or specify a tag
   port: 80
   autoSetup: true
