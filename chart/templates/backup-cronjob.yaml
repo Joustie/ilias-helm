@@ -63,4 +63,6 @@ spec:
                 claimName: {{.Release.Name }}-mariadb-backup-pvc
 
           restartPolicy: OnFailure
+          imagePullSecrets:
+            - name: gitlab-registry
 {{- end }}
