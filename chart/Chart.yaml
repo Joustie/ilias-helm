@@ -2,8 +2,8 @@ apiVersion: v2
 name: ilias
 description: A Helm chart for ILIAS LMS
 type: application
-version: 0.2.2
-appVersion: 10
+version: 0.2.3
+appVersion: 10.5
 dependencies:
   - name: mariadb
     repository: oci://registry-1.docker.io/cloudpirates
