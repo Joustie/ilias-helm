@@ -2,6 +2,21 @@ apiVersion: v1
 entries:
   ilias:
   - apiVersion: v2
+    appVersion: "10.6"
+    created: "2026-04-19T18:56:54.066215257Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/cloudpirates
+      version: 0.6.1
+    description: A Helm chart for ILIAS LMS
+    digest: ec794cbeb13a0da4b37f5b119247cc5cd658bcc33d5ed0859c2fca47a7e86a63
+    name: ilias
+    type: application
+    urls:
+    - https://github.com/Joustie/ilias-helm/releases/download/ilias-0.2.4/ilias-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
     appVersion: "10.5"
     created: "2026-02-21T17:25:00.742984353Z"
     dependencies:
@@ -61,4 +76,4 @@ entries:
     urls:
     - https://github.com/Joustie/ilias-helm/releases/download/ilias-0.2.0/ilias-0.2.0.tgz
     version: 0.2.0
-generated: "2026-02-21T17:25:00.74300409Z"
+generated: "2026-04-19T18:56:54.066237589Z"
