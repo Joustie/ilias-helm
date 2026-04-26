@@ -16,6 +16,14 @@ spec:
         ilias/rpc-server: "true"
 {{ include "ilias.labels" . | nindent 8 }}
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: ilias
+                ilias/server: "true"
+            topologyKey: kubernetes.io/hostname
       containers:
         - name: ilias
           image: {{ .Values.iliasRPCServer.image }}:{{ .Values.iliasRPCServer.tag }}
